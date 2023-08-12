@@ -55,7 +55,7 @@ pipeline {
                         string(credentialsId: secretJson.accessKeyId, variable: 'AWS_ACCESS_KEY_ID'),
                         string(credentialsId: secretJson.secretAccessKey, variable: 'AWS_SECRET_ACCESS_KEY')
                     ]) {
-                        sh "aws cloudformation create-stack ..."
+                        sh "aws cloudformation create-stack --stack-name MyEC2Stack --template-body file://${templatePath} --parameters ParameterKey=AMIId,ParameterValue=${amiId} ParameterKey=SecurityGroups,ParameterValue=${securityGroups} ParameterKey=KeyPairName,ParameterValue=${keyPairName} ParameterKey=InstanceType,ParameterValue=${instanceType}"
                     }
                 }
             }
