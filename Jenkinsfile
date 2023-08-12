@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+        environment {
+        AWS_DEFAULT_REGION = 'us-east-1' // Specify your AWS region here
+        AWS_ACCESS_KEY_ID = 'AKIAWQRWYLPHFM4N42N7'
+        AWS_SECRET_ACCESS_KEY = 'ugxWFhHWmfUnq8kCLKQDFFbswdd/BRIaEnq9RnCD'
+    }
     stages {
         stage('Verify AWS Credentials') {
             steps {
