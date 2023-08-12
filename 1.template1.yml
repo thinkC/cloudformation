@@ -20,10 +20,10 @@ Resources:
   EC2Instance:
     Type: 'AWS::EC2::Instance'
     Properties:
-      ImageId: ami-053b0d53c279acc90
-      InstanceType: t2.micro
-      SecurityGroups: frontendsg
-      KeyName: aws_sre
+      ImageId: !Ref AMIId
+      InstanceType: !Ref InstanceType
+      SecurityGroups: !Ref SecurityGroups  # Reference the SecurityGroups parameter
+      KeyName: !Ref KeyPairName
       Tags:
         - Key: Name
           Value: EC2Instance
