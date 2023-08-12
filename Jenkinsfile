@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages {
+        stage('Verify AWS Credentials') {
+            steps {
+                script {
+                    sh "aws sts get-caller-identity"
+                }
+            }
+        }
+        
         stage('Deploy EC2 Stack') {
             steps {
                 script {
@@ -17,3 +25,4 @@ pipeline {
         }
     }
 }
+
