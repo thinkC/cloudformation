@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: EC2 Instance Provisioning
+
+Parameters:
+  AMIId:
+    Type: String
+    Description: ID of the Amazon Machine Image (AMI)
+  InstanceType:
+    Type: String
+    Default: t2.micro
+    Description: EC2 instance type
+  SecurityGroups:
+    Type: List<String>
+    Description: List of security group names
+  KeyPairName:
+    Type: String
+    Description: EC2 key pair name
+
+Resources:
+  EC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: ami-053b0d53c279acc90
+      InstanceType: t2.micro
+      SecurityGroups: frontendsg
+      KeyName: aws_sre
+      Tags:
+        - Key: Name
+          Value: EC2Instance
