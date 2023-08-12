@@ -41,6 +41,13 @@ pipeline {
     }
 
     stages {
+stages {
+    stage('Install jq') {
+        steps {
+            sh 'sudo apt-get install -y jq' // Adjust the package manager command if needed
+        }
+    }
+
         stage('Deploy EC2 Stack') {
             steps {
                 script {
