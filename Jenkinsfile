@@ -40,7 +40,7 @@ pipeline {
         SECRET_NAME = 'create-ec2' // Replace with your secret name
     }
 
-    stages {
+ 
 stages {
     stage('Install jq') {
         steps {
@@ -68,5 +68,5 @@ stages {
             }
         }
     }
-}
+
 }
